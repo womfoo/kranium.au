@@ -30,7 +30,7 @@ in
     "www.${legacySite}" = {
       forceSSL = true;
       enableACME = true;
-      globalRedirect = "https://${currentSite}";
+      globalRedirect = currentSite;
     };
   };
 }
