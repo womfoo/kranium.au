@@ -1,9 +1,15 @@
 let
   currentSite = "kranium.au";
   legacySite = "gikos.net";
+  testCF = "kranium.net";
 in
 {
   default.services.nginx.virtualHosts = {
+    "${testCF}" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/".root = inputs.cells.site.packages.site-generated;
+    };
     "${currentSite}" = {
       forceSSL = true;
       enableACME = true;
